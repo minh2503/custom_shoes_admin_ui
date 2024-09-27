@@ -10,6 +10,7 @@ import {
   TabsList,
   TabsTrigger
 } from '@/components/ui/tabs.js';
+import OrderShippingTable from './components/order-shipping-table';
 export default function OrderPage() {
   const [searchParams] = useSearchParams();
   const page = Number(searchParams.get('page') || 1);
@@ -45,10 +46,20 @@ export default function OrderPage() {
       <Tabs defaultValue="orderpending" className="space-y-4">
         <TabsList>
           <TabsTrigger value="orderpending">Đơn hàng chờ xử lý</TabsTrigger>
+          <TabsTrigger value="ordershipping">Đơn hàng đang giao</TabsTrigger>
+
           <TabsTrigger value="orderdone">Đơn hàng đã xử lý</TabsTrigger>
         </TabsList>
         <TabsContent value="orderdone" className="space-y-4">
           <OrderDoneTable
+            users={users}
+            page={page}
+            totalUsers={totalUsers}
+            pageCount={pageCount}
+          />
+        </TabsContent>
+        <TabsContent value="ordershipping" className="space-y-4">
+          <OrderShippingTable
             users={users}
             page={page}
             totalUsers={totalUsers}

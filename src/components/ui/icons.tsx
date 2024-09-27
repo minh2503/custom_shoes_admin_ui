@@ -32,12 +32,14 @@ import {
   Phone,
   ClipboardCheck,
   NotepadText,
-  Wallet
+  Wallet,
+  CircleHelp
 } from 'lucide-react';
 
 export type Icon = LucideIcon;
 
 export const Icons = {
+  circleHelp: CircleHelp,
   dashboard: LayoutDashboardIcon,
   logo: Command,
   login: LogIn,
