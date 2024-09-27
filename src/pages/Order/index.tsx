@@ -1,5 +1,5 @@
-import OrderDoneTable from './components/order-done-table';
-import OrderPendingTable from './components/order-pending-table';
+import { useState } from 'react';
+import OrderTable from './components/order-table';
 import { useSearchParams } from 'react-router-dom';
 import { DataTableSkeleton } from '@/components/shared/data-table-skeleton';
 import BasePages from '@/components/shared/base-pages';
@@ -10,7 +10,7 @@ import {
   TabsList,
   TabsTrigger
 } from '@/components/ui/tabs.js';
-import OrderShippingTable from './components/order-shipping-table';
+
 export default function OrderPage() {
   const [searchParams] = useSearchParams();
   const page = Number(searchParams.get('page') || 1);
@@ -21,6 +21,7 @@ export default function OrderPage() {
   const users = data?.users;
   const totalUsers = data?.total_users; //1000
   const pageCount = Math.ceil(totalUsers / pageLimit);
+  const [tabSelected, setTabSelected] = useState('all_order');
 
   if (isLoading) {
     return (
@@ -43,31 +44,35 @@ export default function OrderPage() {
       pageHead="Quản lý đơn hàng | G-Local Shoes"
       className="p-4 md:px-8"
     >
-      <Tabs defaultValue="orderpending" className="space-y-4">
+      <Tabs defaultValue={tabSelected} className="space-y-4">
         <TabsList>
-          <TabsTrigger value="orderpending">Đơn hàng chờ xử lý</TabsTrigger>
-          <TabsTrigger value="ordershipping">Đơn hàng đang giao</TabsTrigger>
-
-          <TabsTrigger value="orderdone">Đơn hàng đã xử lý</TabsTrigger>
+          <TabsTrigger
+            value="all_order"
+            onClick={() => setTabSelected('all_order')}
+          >
+            Tất cả đơn hàng
+          </TabsTrigger>
+          <TabsTrigger
+            value="orderpending"
+            onClick={() => setTabSelected('orderpending')}
+          >
+            Tổng quan chờ xử lý
+          </TabsTrigger>
+          <TabsTrigger
+            value="ordershipping"
+            onClick={() => setTabSelected('ordershipping')}
+          >
+            Đơn hàng đang giao
+          </TabsTrigger>
+          <TabsTrigger
+            value="orderdone"
+            onClick={() => setTabSelected('orderdone')}
+          >
+            Đơn hàng đã xử lý
+          </TabsTrigger>
         </TabsList>
-        <TabsContent value="orderdone" className="space-y-4">
-          <OrderDoneTable
-            users={users}
-            page={page}
-            totalUsers={totalUsers}
-            pageCount={pageCount}
-          />
-        </TabsContent>
-        <TabsContent value="ordershipping" className="space-y-4">
-          <OrderShippingTable
-            users={users}
-            page={page}
-            totalUsers={totalUsers}
-            pageCount={pageCount}
-          />
-        </TabsContent>
-        <TabsContent value="orderpending" className="space-y-4">
-          <OrderPendingTable
+        <TabsContent value={tabSelected} className="space-y-4">
+          <OrderTable
             users={users}
             page={page}
             totalUsers={totalUsers}

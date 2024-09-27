@@ -71,33 +71,21 @@ const initialListProduct: Product[] = [
 ];
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
-  // Quản lý hiển thị modal xác nhận
   const [open, setOpen] = useState(false);
-
-  // Quản lý hiển thị dialog chi tiết đơn hàng
   const [openDialog, setOpenDialog] = useState(false);
-
-  // Quản lý danh sách sản phẩm, cho phép cập nhật giá
   const [listProduct, setListProduct] = useState<Product[]>(initialListProduct);
-
-  // Quản lý giá đã cập nhật cho các sản phẩm tùy chỉnh
   const [updatedPrices, setUpdatedPrices] = useState<{ [key: number]: number }>(
     {}
   );
 
-  // Quản lý trạng thái đang cập nhật API
   const [isUpdating, setIsUpdating] = useState(false);
 
-  // Quản lý thông báo lỗi
   const [error, setError] = useState<string | null>(null);
 
-  // Hàm xử lý xác nhận trong modal
   const onConfirm = async () => {
     setOpen(false);
-    // Thực hiện các logic xác nhận thêm tại đây
   };
 
-  // Hàm xử lý cập nhật giá qua API
   const handleUpdatePrices = async () => {
     // Lấy danh sách sản phẩm tùy chỉnh đã cập nhật giá
     const customizedProducts = listProduct
@@ -119,7 +107,6 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
     setError(null);
 
     try {
-      // Thay thế bằng endpoint API thực tế của bạn
       const response = await fetch('/api/update-prices', {
         method: 'POST',
         headers: {
@@ -135,7 +122,6 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
       const data = await response.json();
       console.log('Cập nhật thành công:', data);
 
-      // Cập nhật trạng thái danh sách sản phẩm với giá mới
       const updatedList = listProduct.map((product) =>
         updatedPrices[product.id] !== undefined
           ? { ...product, price: updatedPrices[product.id] }

@@ -1,9 +1,8 @@
 import { Checkbox } from '@/components/ui/checkbox';
-import { Employee } from '@/constants/data';
+import { Student } from '@/constants/data';
 import { ColumnDef } from '@tanstack/react-table';
 import { CellAction } from './cell-action';
-
-export const columns: ColumnDef<Employee>[] = [
+export const columns: ColumnDef<Student>[] = [
   {
     id: 'select',
     header: ({ table }) => (
@@ -24,24 +23,40 @@ export const columns: ColumnDef<Employee>[] = [
     enableHiding: false
   },
   {
-    accessorKey: 'first_name',
-    header: 'NAME'
+    accessorKey: 'name',
+    header: 'Mã đơn hàng',
+
+    enableSorting: true
   },
   {
-    accessorKey: 'country',
-    header: 'COUNTRY'
+    accessorKey: 'nameCustomer',
+    header: 'Tên khách hàng 2',
+    enableSorting: true
   },
   {
-    accessorKey: 'email',
-    header: 'EMAIL'
+    accessorKey: 'shipAddress',
+    header: 'Địa chỉ giao hàng'
   },
   {
-    accessorKey: 'job',
-    header: 'COMPANY'
+    accessorKey: 'phone',
+    header: 'Số điện thoại'
   },
   {
-    accessorKey: 'gender',
-    header: 'GENDER'
+    accessorKey: 'createdDate',
+    header: 'Ngày tạo'
+  },
+  {
+    accessorKey: 'shippedDate',
+    header: 'Ngày giao hàng'
+  },
+  {
+    accessorKey: 'amount',
+    header: 'Tổng tiền'
+  },
+  {
+    accessorKey: 'status',
+    header: 'Trạng thái',
+    cell: () => <div>Chờ xác nhận</div>
   },
   {
     id: 'actions',

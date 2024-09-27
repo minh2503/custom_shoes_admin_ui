@@ -7,10 +7,7 @@ type TStudentsTableProps = {
   pageCount: number;
 };
 
-export default function OrderPendingTable({
-  users,
-  pageCount
-}: TStudentsTableProps) {
+export default function OrderTable({ users, pageCount }: TStudentsTableProps) {
   return (
     <>
       {users && (
