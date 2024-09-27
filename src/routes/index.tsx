@@ -1,4 +1,3 @@
-import FormPage from '@/pages/form';
 import NotFound from '@/pages/not-found';
 import { Suspense, lazy } from 'react';
 import { Navigate, Outlet, useRoutes } from 'react-router-dom';
@@ -8,14 +7,8 @@ const DashboardLayout = lazy(
 );
 const SignInPage = lazy(() => import('@/pages/auth/signin'));
 const DashboardPage = lazy(() => import('@/pages/dashboard'));
-const StudentPage = lazy(() => import('@/pages/students'));
-const AdvisoryPage = lazy(() => import('@/pages/advisory'));
-const StudentDetailPage = lazy(
-  () => import('@/pages/students/StudentDetailPage')
-);
-const CheckInPage = lazy(() => import('@/pages/checkin'));
-const CheckInManagerPage = lazy(() => import('@/pages/checkin-manager'));
 const RevenuePage = lazy(() => import('@/pages/revenue'));
+const OrderPage = lazy(() => import('@/pages/Order'));
 // ----------------------------------------------------------------------
 
 export default function AppRouter() {
@@ -35,33 +28,37 @@ export default function AppRouter() {
           index: true
         },
         {
-          path: 'student',
-          element: <StudentPage />
-        },
-        {
-          path: 'student/:id/',
-          element: <StudentDetailPage />
-        },
-        {
-          path: 'form',
-          element: <FormPage />
-        },
-        {
-          path: 'advisory',
-          element: <AdvisoryPage />
-        },
-        {
-          path: 'checkin-student',
-          element: <CheckInPage />
-        },
-        {
-          path: 'checkin-manager',
-          element: <CheckInManagerPage />
+          path: 'order',
+          element: <OrderPage />
         },
         {
           path: 'revenue',
           element: <RevenuePage />
         }
+        // {
+        //   path: 'student',
+        //   element: <StudentPage />
+        // },
+        // {
+        //   path: 'student/:id/',
+        //   element: <StudentDetailPage />
+        // },
+        // {
+        //   path: 'form',
+        //   element: <FormPage />
+        // },
+        // {
+        //   path: 'advisory',
+        //   element: <AdvisoryPage />
+        // },
+        // {
+        //   path: 'checkin-student',
+        //   element: <CheckInPage />
+        // },
+        // {
+        //   path: 'checkin-manager',
+        //   element: <CheckInManagerPage />
+        // },
       ]
     }
   ];

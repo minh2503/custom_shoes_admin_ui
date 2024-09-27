@@ -11,12 +11,12 @@ export default function RecentSales() {
         <div className="ml-4 space-y-1">
           <p className="text-sm font-medium leading-none">Nguyễn Thị A</p>
           <p className="text-sm text-muted-foreground">
-            Ngày đặt tư vấn: 13:00 12/12/2021
+            Đơn hàng customize mới
           </p>
         </div>
         <div className="ml-auto font-medium">
-          <p>SĐT: 0941820201</p>
-          <p className="text-red-400">Chưa tư vấn</p>
+          <p className="text-end">5 phút trước</p>
+          <p className="text-red-400">Chưa thanh toán</p>
         </div>
       </div>
       <div className="flex items-center">
@@ -26,13 +26,11 @@ export default function RecentSales() {
         </Avatar>
         <div className="ml-4 space-y-1">
           <p className="text-sm font-medium leading-none">Nguyễn Thị A</p>
-          <p className="text-sm text-muted-foreground">
-            Ngày đặt tư vấn: 13:00 12/12/2021
-          </p>
+          <p className="text-sm text-muted-foreground">Đơn hàng thường</p>
         </div>
         <div className="ml-auto font-medium">
-          <p>SĐT: 0941820201</p>
-          <p className="text-green-400">Đã tư vấn</p>
+          <p className="text-end">6 phút trước</p>
+          <p className="text-green-400">Đã thanh toán</p>
         </div>
       </div>
     </div>

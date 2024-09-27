@@ -23,21 +23,21 @@ export const ListOverViewDashBoard = [
   },
   {
     id: 2,
-    title: 'Tổng học sinh',
+    title: 'Tổng đơn hàng trong tháng',
     value: '+2350',
     percent: '+180.1%',
     icon: <Student />
   },
   {
     id: 3,
-    title: 'Số học sinh mới',
+    title: 'Đơn hàng cần xử lý',
     value: '+43',
     percent: '+19%',
     icon: <StudentAdd />
   },
   {
     id: 4,
-    title: 'Lượt cần tư vấn mới',
+    title: 'Đơn hàng đã xử lý',
     value: '+573',
     percent: '+201',
     icon: <Advisory />
@@ -76,8 +76,8 @@ export function OverViewTab() {
         </Card>
         <Card className="col-span-4 md:col-span-3">
           <CardHeader>
-            <CardTitle>Danh sách cần tư vấn</CardTitle>
-            <CardDescription>Đang có 20 phụ huynh cần tư vấn</CardDescription>
+            <CardTitle>Đơn hàng mới</CardTitle>
+            <CardDescription>Theo dõi các đơn hàng mới</CardDescription>
           </CardHeader>
           <CardContent>
             <RecentSales />

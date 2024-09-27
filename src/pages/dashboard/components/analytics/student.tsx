@@ -8,7 +8,7 @@ export default function Student() {
     <>
       <Card className="w-full md:w-1/3">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Tổng học sinh</CardTitle>
+          <CardTitle className="text-sm font-medium">Tổng đơn hàng</CardTitle>
           <StudentAdd />
         </CardHeader>
         <CardContent>
@@ -21,7 +21,7 @@ export default function Student() {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-7">
         <Card className="col-span-7">
           <CardHeader>
-            <CardTitle>Số học sinh</CardTitle>
+            <CardTitle>Số đơn hàng</CardTitle>
           </CardHeader>
           <CardContent>
             <StudentGraph />
