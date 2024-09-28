@@ -77,6 +77,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
   const [updatedPrices, setUpdatedPrices] = useState<{ [key: number]: number }>(
     {}
   );
+  console.log(data);
 
   const [isUpdating, setIsUpdating] = useState(false);
 

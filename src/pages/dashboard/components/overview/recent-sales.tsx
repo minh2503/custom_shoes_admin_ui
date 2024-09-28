@@ -9,14 +9,14 @@ export default function RecentSales() {
           <AvatarFallback>OM</AvatarFallback>
         </Avatar>
         <div className="ml-4 space-y-1">
-          <p className="text-sm font-medium leading-none">Nguyễn Thị A</p>
-          <p className="text-sm text-muted-foreground">
-            Đơn hàng customize mới
+          <p className="text-sm font-medium leading-none">
+            Giày thể theo Air Jordan
           </p>
+          <p className="text-sm text-muted-foreground">Mã sản phẩm : G-002</p>
         </div>
         <div className="ml-auto font-medium">
-          <p className="text-end">5 phút trước</p>
-          <p className="text-red-400">Chưa thanh toán</p>
+          <p className="text-end">Số lượng: 34 sản phẩm</p>
+          <p className="text-green-500">Tổng doanh thu: 20.000.000 đ</p>
         </div>
       </div>
       <div className="flex items-center">
@@ -25,12 +25,30 @@ export default function RecentSales() {
           <AvatarFallback>OM</AvatarFallback>
         </Avatar>
         <div className="ml-4 space-y-1">
-          <p className="text-sm font-medium leading-none">Nguyễn Thị A</p>
-          <p className="text-sm text-muted-foreground">Đơn hàng thường</p>
+          <p className="text-sm font-medium leading-none">
+            Giày thể theo Air Jordan
+          </p>
+          <p className="text-sm text-muted-foreground">Mã sản phẩm : G-002</p>
         </div>
         <div className="ml-auto font-medium">
-          <p className="text-end">6 phút trước</p>
-          <p className="text-green-400">Đã thanh toán</p>
+          <p className="text-end">Số lượng: 12 sản phẩm</p>
+          <p className="text-green-500">Tổng doanh thu: 12.000.000 đ</p>
+        </div>
+      </div>
+      <div className="flex items-center">
+        <Avatar className="h-9 w-9">
+          <AvatarImage src="/avatars/01.png" alt="Avatar" />
+          <AvatarFallback>OM</AvatarFallback>
+        </Avatar>
+        <div className="ml-4 space-y-1">
+          <p className="text-sm font-medium leading-none">
+            Giày thể theo Air Jordan
+          </p>
+          <p className="text-sm text-muted-foreground">Mã sản phẩm : G-002</p>
+        </div>
+        <div className="ml-auto font-medium">
+          <p className="text-end">Số lượng: 12 sản phẩm</p>
+          <p className="text-green-500">Tổng doanh thu: 12.000.000 đ</p>
         </div>
       </div>
     </div>

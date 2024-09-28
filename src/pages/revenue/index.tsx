@@ -1,11 +1,10 @@
 import { useGetStudents } from './queries/queries';
-import StudentsTable from './checkin-table/index';
 import { useSearchParams } from 'react-router-dom';
 import { DataTableSkeleton } from '@/components/shared/data-table-skeleton';
 import BasePages from '@/components/shared/base-pages';
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs.js';
-import Student from './components/students/index';
-import Teacher from './components/teachers/index';
+import RevenueAnalysis from './components/analysis/revenue-analysis';
+import BestBrandSell from './components/analysis/best-brand-sell';
+import BestProductSell from './components/analysis/best-product-sell';
 
 export default function CheckInPage() {
   const [searchParams] = useSearchParams();
@@ -39,23 +38,11 @@ export default function CheckInPage() {
       pageHead="Quản lý doanh thu | Happy Kids"
       className="p-4 md:px-8"
     >
-      <h1 className="mb-4 text-2xl font-bold">
-        Doanh thu tháng 9 - Happy Kids
-      </h1>
-      <Tabs defaultValue="student" className="space-y-4">
-        <TabsList>
-          <TabsTrigger value="student">Học sinh</TabsTrigger>
-          <TabsTrigger value="teacher">Giáo viên</TabsTrigger>
-        </TabsList>
-        <Student />
-        <Teacher />
-      </Tabs>
-      <StudentsTable
-        users={users}
-        page={page}
-        totalUsers={totalUsers}
-        pageCount={pageCount}
-      />
+      <div className="grid grid-cols-2 gap-4">
+        <RevenueAnalysis />
+        <BestBrandSell />
+        <BestProductSell />
+      </div>
     </BasePages>
   );
 }

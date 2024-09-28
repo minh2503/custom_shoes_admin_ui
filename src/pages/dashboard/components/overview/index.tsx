@@ -76,8 +76,10 @@ export function OverViewTab() {
         </Card>
         <Card className="col-span-4 md:col-span-3">
           <CardHeader>
-            <CardTitle>Đơn hàng mới</CardTitle>
-            <CardDescription>Theo dõi các đơn hàng mới</CardDescription>
+            <CardTitle>Top 3 sản phẩm bán nhiều nhất</CardTitle>
+            <CardDescription>
+              Các đơn hàng bán nhiều nhất trong tháng
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <RecentSales />

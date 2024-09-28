@@ -56,19 +56,19 @@ export default function OrderPage() {
             value="orderpending"
             onClick={() => setTabSelected('orderpending')}
           >
-            Tổng quan chờ xử lý
+            Chờ xử lý
           </TabsTrigger>
           <TabsTrigger
             value="ordershipping"
             onClick={() => setTabSelected('ordershipping')}
           >
-            Đơn hàng đang giao
+            Đang giao
           </TabsTrigger>
           <TabsTrigger
             value="orderdone"
             onClick={() => setTabSelected('orderdone')}
           >
-            Đơn hàng đã xử lý
+            Đã xử lý
           </TabsTrigger>
         </TabsList>
         <TabsContent value={tabSelected} className="space-y-4">
