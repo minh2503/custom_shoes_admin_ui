@@ -8,14 +8,19 @@ import {
   FormMessage
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { useLogin } from '@/queries/auth.query';
 import { useRouter } from '@/routes/hooks';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
+import helper from '@/helpers/index';
 
 const formSchema = z.object({
-  email: z.string().email({ message: 'Enter a valid email address' })
+  username: z.string().email({ message: 'Enter a valid email address' }),
+  password: z
+    .string()
+    .min(2, { message: 'Password must be at least 2 characters long' })
 });
 
 type UserFormValue = z.infer<typeof formSchema>;
@@ -23,8 +28,10 @@ type UserFormValue = z.infer<typeof formSchema>;
 export default function UserAuthForm() {
   const router = useRouter();
   const [loading] = useState(false);
+  const { mutateAsync: login } = useLogin();
   const defaultValues = {
-    email: 'demo@gmail.com'
+    username: '',
+    password: ''
   };
   const form = useForm<UserFormValue>({
     resolver: zodResolver(formSchema),
@@ -32,7 +39,11 @@ export default function UserAuthForm() {
   });
 
   const onSubmit = async (data: UserFormValue) => {
-    router.push('/');
+    var res = await login(data);
+    if (res) {
+      helper.cookie_set('AT', res.accessToken);
+      window.location.href = '/';
+    }
   };
 
   return (
@@ -42,16 +53,37 @@ export default function UserAuthForm() {
           onSubmit={form.handleSubmit(onSubmit)}
           className="w-full space-y-2"
         >
+          {/* Trường Email */}
           <FormField
             control={form.control}
-            name="email"
+            name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel>UserName</FormLabel>
                 <FormControl>
                   <Input
                     type="email"
-                    placeholder="Enter your email..."
+                    placeholder="Enter user name..."
+                    disabled={loading}
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          {/* Trường Mật Khẩu */}
+          <FormField
+            control={form.control}
+            name="password"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Mật Khẩu</FormLabel>
+                <FormControl>
+                  <Input
+                    type="password"
+                    placeholder="Nhập mật khẩu của bạn..."
                     disabled={loading}
                     {...field}
                   />
@@ -62,20 +94,10 @@ export default function UserAuthForm() {
           />
 
           <Button disabled={loading} className="ml-auto w-full" type="submit">
-            Đăng nhập với email
+            Đăng nhập
           </Button>
         </form>
       </Form>
-      {/* <div className="relative">
-        <div className="absolute inset-0 flex items-center">
-          <span className="w-full border-t" />
-        </div>
-        <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-background px-2 text-muted-foreground">
-            Or continue with
-          </span>
-        </div>
-      </div> */}
     </>
   );
 }

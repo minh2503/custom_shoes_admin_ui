@@ -10,6 +10,11 @@ import {
   TabsList,
   TabsTrigger
 } from '@/components/ui/tabs.js';
+import {
+  useGetAllOrder,
+  useGetOrderByStatus
+} from '../revenue/queries/cart.query';
+import { PagingModel } from '@/constants/data';
 
 export default function OrderPage() {
   const [searchParams] = useSearchParams();
@@ -22,6 +27,11 @@ export default function OrderPage() {
   const totalUsers = data?.total_users; //1000
   const pageCount = Math.ceil(totalUsers / pageLimit);
   const [tabSelected, setTabSelected] = useState('all_order');
+  const [paging, setPaging] = useState({ ...PagingModel, orderStatus: 1 });
+  const { mutateAsync } = useGetOrderByStatus();
+  const { data: allOrder } = useGetAllOrder();
+
+  console.log('allOrder', allOrder);
 
   if (isLoading) {
     return (
@@ -53,10 +63,10 @@ export default function OrderPage() {
             Tất cả đơn hàng
           </TabsTrigger>
           <TabsTrigger
-            value="orderpending"
-            onClick={() => setTabSelected('orderpending')}
+            value="orderconfirm"
+            onClick={() => setTabSelected('orderconfirm')}
           >
-            Chờ xử lý
+            Đã xác nhận
           </TabsTrigger>
           <TabsTrigger
             value="ordershipping"
@@ -68,7 +78,7 @@ export default function OrderPage() {
             value="orderdone"
             onClick={() => setTabSelected('orderdone')}
           >
-            Đã xử lý
+            Giao thành công
           </TabsTrigger>
         </TabsList>
         <TabsContent value={tabSelected} className="space-y-4">

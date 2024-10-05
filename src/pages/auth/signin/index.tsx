@@ -34,10 +34,8 @@ export default function SignInPage() {
         </div>
         <div className="relative z-20 mt-auto">
           <blockquote className="space-y-2">
-            <p className="text-lg">
-              &ldquo;Happy Kids - Mầm non dành cho trẻ.&rdquo;
-            </p>
-            <footer className="text-sm">Nguyễn Đức Tuấn</footer>
+            <p className="text-lg">&ldquo;G-Local Shoes Quản trị.&rdquo;</p>
+            <footer className="text-sm">G-LocalShoes</footer>
           </blockquote>
         </div>
       </div>

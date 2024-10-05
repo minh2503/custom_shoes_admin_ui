@@ -59,6 +59,16 @@ export const useGetOrderByStatus = () => {
   });
 };
 
+export const useGetAllOrder = () => {
+  const model = { ...PagingModel };
+  return useQuery({
+    queryKey: ['get_all_order'],
+    queryFn: async () => {
+      return BaseRequest.Post(`/${SUB_URL}/get-all-orders`, model);
+    }
+  });
+};
+
 export const useGetOrderConfirm = () => {
   let model = { ...PagingModel, orderStatus: 2 };
   return useQuery({
