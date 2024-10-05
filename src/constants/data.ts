@@ -27,6 +27,20 @@ export const navItems: NavItem[] = [
   }
 ];
 
+export var PagingModel = {
+  pageNumber: 1,
+  pageSize: 10,
+  keyword: '',
+  orderBy: '',
+  orderDirection: '',
+  totalRecord: 0,
+  day: 0,
+  week: 0,
+  month: 0,
+  year: 0,
+  createdBy: ''
+};
+
 export const users = [
   {
     id: 1,

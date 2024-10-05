@@ -1,7 +1,17 @@
 // App.js
-import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
+type ChartAnalysisProps = {
+  title: string;
+  labels: string[];
+  label: string;
+  backgroundColor: string;
+  borderColor: string;
+  borderWidth: number;
+  TData: number[];
+  options?: any;
+};
 
 import {
   Chart as ChartJS,
@@ -23,23 +33,15 @@ ChartJS.register(
   Legend
 );
 
-const RevenueAnalysis = () => {
-  // Dữ liệu thương hiệu và số lượng sản phẩm bán được
-  const data = {
-    labels: ['Sản phẩm thuần', 'Sản phẩm custom'],
-    datasets: [
-      {
-        label: 'Doanh thu theo sản phẩm',
-        data: [150, 200, 120, 180, 90], // Đây là dữ liệu về số sản phẩm bán được của mỗi thương hiệu
-        backgroundColor: 'rgba(255, 205, 86, 0.2)', // Màu nền của các cột
-        borderColor: 'rgb(255, 205, 86)', // Màu viền của các cột
-        borderWidth: 1 // Độ dày viền
-      }
-    ]
-  };
-
-  // Các tùy chọn cho biểu đồ
-  const options = {
+export default function ChartAnalysis({
+  title,
+  labels,
+  label,
+  backgroundColor,
+  borderColor,
+  borderWidth,
+  TData,
+  options = {
     responsive: true,
     scales: {
       x: {
@@ -49,13 +51,26 @@ const RevenueAnalysis = () => {
         stacked: true
       }
     }
+  }
+}: ChartAnalysisProps) {
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: label,
+        data: TData, // Đây là dữ liệu về số sản phẩm bán được của mỗi thương hiệu
+        backgroundColor: backgroundColor, // Màu nền của các cột
+        borderColor: borderColor, // Màu viền của các cột
+        borderWidth: borderWidth // Độ dày viền
+      }
+    ]
   };
 
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-7">
       <Card className="col-span-7">
         <CardHeader>
-          <CardTitle>Doanh thu theo loại sản phẩm</CardTitle>
+          <CardTitle>{title}</CardTitle>
         </CardHeader>
         <CardContent>
           <Bar data={data} options={options} />
@@ -63,6 +78,4 @@ const RevenueAnalysis = () => {
       </Card>
     </div>
   );
-};
-
-export default RevenueAnalysis;
+}

@@ -12,7 +12,7 @@ export default function DashboardLayout({
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
 
   return (
-    <div className="flex h-full  bg-secondary">
+    <div className="flex h-full min-h-screen bg-secondary ">
       <MobileSidebar
         sidebarOpen={sidebarOpen}
         setSidebarOpen={setSidebarOpen}
