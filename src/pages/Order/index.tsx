@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import OrderTable from './components/order-table';
 import { useSearchParams } from 'react-router-dom';
 import { DataTableSkeleton } from '@/components/shared/data-table-skeleton';
@@ -30,8 +30,8 @@ export default function OrderPage() {
   const [paging, setPaging] = useState({ ...PagingModel, orderStatus: 1 });
   const { mutateAsync } = useGetOrderByStatus();
   const { data: allOrder } = useGetAllOrder();
-
-  console.log('allOrder', allOrder);
+  const listOrder = allOrder?.listObjects;
+  console.log('allOrder', listOrder);
 
   if (isLoading) {
     return (
@@ -83,7 +83,7 @@ export default function OrderPage() {
         </TabsList>
         <TabsContent value={tabSelected} className="space-y-4">
           <OrderTable
-            users={users}
+            users={listOrder}
             page={page}
             totalUsers={totalUsers}
             pageCount={pageCount}
