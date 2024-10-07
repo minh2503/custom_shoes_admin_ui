@@ -53,17 +53,19 @@ export const useGetItemInCart = () => {
 export const useGetOrderByStatus = () => {
   return useMutation({
     mutationKey: ['get_order_by_status'],
-    mutationFn: async (model) => {
-      return BaseRequest.Post(`/${SUB_URL}/filter-all-orders-by-status`, model);
+    mutationFn: async (model: any) => {
+      return await BaseRequest.Post(
+        `/${SUB_URL}/filter-all-orders-by-status`,
+        model
+      );
     }
   });
 };
 
-export const useGetAllOrder = () => {
-  const model = { ...PagingModel };
+export const useGetAllOrder = (model: any) => {
   return useQuery({
     queryKey: ['get_all_order'],
-    queryFn: async () => {
+    queryFn: () => {
       return BaseRequest.Post(`/${SUB_URL}/get-all-orders`, model);
     }
   });
@@ -74,7 +76,10 @@ export const useGetOrderConfirm = () => {
   return useQuery({
     queryKey: ['get_order_confirm'],
     queryFn: async () => {
-      return BaseRequest.Post(`/${SUB_URL}/filter-all-orders-by-status`, model);
+      return await BaseRequest.Post(
+        `/${SUB_URL}/filter-all-orders-by-status`,
+        model
+      );
     }
   });
 };

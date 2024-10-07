@@ -187,6 +187,18 @@ export type Student = {
   isActive: boolean;
 };
 
+export type Order = {
+  id: string;
+  orderCode: string;
+  userName: string;
+  shipAddress: string;
+  phone: string;
+  createdDate: string;
+  shippedDate?: string;
+  amount: number;
+  status: number;
+};
+
 export type StudentCheckIn = {
   id: number;
   name: string;
