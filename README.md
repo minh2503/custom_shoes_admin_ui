@@ -46,4 +46,5 @@ Follow these steps to clone the repository and start the development server:
 - `npm run dev`
 
 You should now be able to access the application at http://localhost:5173.
-"# shoes-customize-shop.admin" 
+"# shoes-customize-shop.admin"
+"# booking_admin"
