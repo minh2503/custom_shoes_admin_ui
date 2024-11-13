@@ -2,7 +2,7 @@ import axios from 'axios';
 import helpers from '../helpers';
 
 const baseURL =
-  process.env.NODE_ENV !== 'production'
+  process.env.NODE_ENV === 'production'
     ? 'https://tamnguyendev23-001-site1.ntempurl.com/'
     : 'https://localhost:7093/';
 
