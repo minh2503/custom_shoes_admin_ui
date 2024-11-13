@@ -2,7 +2,6 @@ import { AlertModal } from '@/components/shared/alert-modal';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Employee } from '@/constants/data';
-import { useRouter } from '@/routes/hooks';
 import { useState } from 'react';
 
 interface CellActionProps {
@@ -13,7 +12,6 @@ interface CellActionProps {
 export const CellAction: React.FC<CellActionProps> = ({ data, isActive }) => {
   const [loading] = useState(false);
   const [open, setOpen] = useState(false);
-  const router = useRouter();
 
   const onConfirm = async () => {};
 

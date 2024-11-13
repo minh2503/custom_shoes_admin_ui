@@ -1,5 +1,5 @@
 import BaseRequest from '@/config/axios.config';
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 
 const SUB_URL = `api/Advisory`;
 

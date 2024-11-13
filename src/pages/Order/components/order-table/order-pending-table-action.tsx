@@ -1,4 +1,3 @@
-import PopupModal from '@/components/shared/popup-modal';
 import TableSearchInput from '@/components/shared/table-search-input';
 export default function StudentTableActions(props) {
   return (

@@ -1,5 +1,4 @@
 // src/components/CellAction.jsx or similar
-import { AlertModal } from '@/components/shared/alert-modal';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -8,8 +7,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
-import { Order } from '@/constants/data';
-import { Edit, MoreHorizontal, Trash, Eye } from 'lucide-react'; // Import Eye icon instead of Download
+import { Edit, MoreHorizontal, Eye } from 'lucide-react'; // Import Eye icon instead of Download
 import { useState } from 'react';
 import {
   Dialog,
@@ -18,7 +16,6 @@ import {
   DialogHeader,
   DialogTitle
 } from '@/components/ui/dialog';
-import { Icons } from '@/components/ui/icons';
 import { Input } from '@/components/ui/input';
 import { useUpdateOrder } from '@/pages/revenue/queries/cart.query';
 import { useDispatch } from 'react-redux';
@@ -37,7 +34,6 @@ const STATUS = {
 };
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {
-  const [open, setOpen] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [isEditingPrice, setIsEditingPrice] = useState(false);
   const [newPrice, setNewPrice] = useState('');

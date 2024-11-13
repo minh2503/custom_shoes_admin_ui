@@ -32,9 +32,8 @@ import {
 } from '@tanstack/react-table';
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import { useSearchParams } from 'react-router-dom';
-import PopupModal from '@/components/shared/popup-modal';
-import StudentCreateForm from '@/pages/students/components/student-forms/student-create-form';
 import { Input } from '../ui/input';
+
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
@@ -117,15 +116,6 @@ export default function DataTable<TData, TValue>({
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-1/3 rounded-md border px-4 py-2"
           />
-        </div>
-        <div className="flex gap-3">
-          {showAdd && (
-            <PopupModal
-              renderModal={(onClose) => (
-                <StudentCreateForm modalClose={onClose} />
-              )}
-            />
-          )}
         </div>
       </div>
       <ScrollArea

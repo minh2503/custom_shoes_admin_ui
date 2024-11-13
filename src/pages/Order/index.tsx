@@ -1,5 +1,5 @@
 // src/pages/revenue/OrderPage.jsx or similar
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import OrderTable from './components/order-table';
 import { useSearchParams } from 'react-router-dom';
 import { DataTableSkeleton } from '@/components/shared/data-table-skeleton';
@@ -47,7 +47,7 @@ export default function OrderPage() {
   const { data: orderByStatus, mutateAsync: refetchOrderByStatus } =
     useGetOrderByStatus();
 
-  const fetchData = useEffect(() => {
+  useEffect(() => {
     handleFetchData(tabSelected, paging);
   }, [tabSelected, refetchAllOrder, orderRedux]);
 

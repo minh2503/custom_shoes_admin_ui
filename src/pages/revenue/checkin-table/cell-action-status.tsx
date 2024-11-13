@@ -1,7 +1,6 @@
 import { AlertModal } from '@/components/shared/alert-modal';
 import { Badge } from '@/components/ui/badge';
 import { Employee } from '@/constants/data';
-import { useRouter } from '@/routes/hooks';
 import { useState } from 'react';
 
 const STATUS = ['Đã điểm danh', 'Chưa điểm danh'];
@@ -13,13 +12,10 @@ interface CellActionStatusProps {
 }
 
 export const CellActionStatus: React.FC<CellActionStatusProps> = ({
-  data,
-  isActive,
   status
 }) => {
   const [loading] = useState(false);
   const [open, setOpen] = useState(false);
-  const router = useRouter();
 
   const onConfirm = async () => {};
 

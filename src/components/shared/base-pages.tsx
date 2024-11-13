@@ -1,4 +1,3 @@
-import UserNav from './user-nav';
 import { ModeToggle } from './theme-toggle';
 import PageHead from '@/components/shared/page-head.jsx';
 import { Breadcrumbs } from '@/components/shared/breadcrumbs';
@@ -23,7 +22,7 @@ const BasePages = ({
         <div className="hidden items-center justify-between md:flex md:pr-8">
           <div> {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}</div>
           <div className="flex items-center justify-center">
-            <UserNav />
+            {/* <UserNav /> */}
             <ModeToggle />
           </div>
         </div>

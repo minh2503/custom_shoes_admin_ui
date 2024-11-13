@@ -311,28 +311,7 @@ export default class GET {
       G = K(G, K(K(n(F, aa, Z), k), I));
       return K(L(G, H), F);
     }
-    function e(G: string) {
-      var Z: number;
-      var F = G.length;
-      var x = F + 8;
-      var k = (x - (x % 64)) / 64;
-      var I = (k + 1) * 16;
-      var aa = Array(I - 1);
-      var d = 0;
-      var H = 0;
-      while (H < F) {
-        Z = (H - (H % 4)) / 4;
-        d = (H % 4) * 8;
-        aa[Z] = aa[Z] | (G.charCodeAt(H) << d);
-        H++;
-      }
-      Z = (H - (H % 4)) / 4;
-      d = (H % 4) * 8;
-      aa[Z] = aa[Z] | (128 << d);
-      aa[I - 2] = F << 3;
-      aa[I - 1] = F >>> 29;
-      return aa;
-    }
+
     function B(x: number) {
       var k = '',
         F = '',
@@ -345,26 +324,7 @@ export default class GET {
       }
       return k;
     }
-    function J(k: string) {
-      k = k.replace(/rn/g, 'n');
-      var d = '';
-      for (var F = 0; F < k.length; F++) {
-        var x = k.charCodeAt(F);
-        if (x < 128) {
-          d += String.fromCharCode(x);
-        } else {
-          if (x > 127 && x < 2048) {
-            d += String.fromCharCode((x >> 6) | 192);
-            d += String.fromCharCode((x & 63) | 128);
-          } else {
-            d += String.fromCharCode((x >> 12) | 224);
-            d += String.fromCharCode(((x >> 6) & 63) | 128);
-            d += String.fromCharCode((x & 63) | 128);
-          }
-        }
-      }
-      return d;
-    }
+
     var C = Array();
     var P: number,
       h: any,

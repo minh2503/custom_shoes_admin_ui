@@ -23,7 +23,6 @@ export default function DashboardPage() {
         <Tabs defaultValue="overview" className="space-y-4">
           <TabsList>
             <TabsTrigger value="overview">Tổng quan</TabsTrigger>
-            <TabsTrigger value="analytics">Thống kê chi tiết</TabsTrigger>
           </TabsList>
           <TabsContent value="overview" className="space-y-4">
             <OverViewTab />

@@ -5,8 +5,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  Legend,
-  CartesianGrid
+  Legend
 } from 'recharts';
 
 const data = [

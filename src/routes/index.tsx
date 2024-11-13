@@ -1,14 +1,17 @@
 import NotFound from '@/pages/not-found';
 import { Suspense, lazy } from 'react';
 import { Navigate, Outlet, useRoutes } from 'react-router-dom';
+import ProtectedRoute from './ProtectedRoute';
 
 const DashboardLayout = lazy(
   () => import('@/components/layout/dashboard-layout')
 );
+
 const SignInPage = lazy(() => import('@/pages/auth/signin'));
 const DashboardPage = lazy(() => import('@/pages/dashboard'));
 const RevenuePage = lazy(() => import('@/pages/revenue'));
 const OrderPage = lazy(() => import('@/pages/Order'));
+
 // ----------------------------------------------------------------------
 
 export default function AppRouter() {
@@ -24,7 +27,11 @@ export default function AppRouter() {
       ),
       children: [
         {
-          element: <DashboardPage />,
+          element: (
+            <ProtectedRoute>
+              <DashboardPage />
+            </ProtectedRoute>
+          ),
           index: true
         },
         {

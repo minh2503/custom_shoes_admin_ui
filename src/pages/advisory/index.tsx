@@ -1,5 +1,4 @@
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs.js';
-import { useGetStudents } from '../checkin-manager/queries/queries';
 import AdvisoryTable from './advisory-table/index';
 import { useSearchParams } from 'react-router-dom';
 import { DataTableSkeleton } from '@/components/shared/data-table-skeleton';
@@ -19,8 +18,6 @@ export default function Advisory() {
   const [searchParams] = useSearchParams();
   const page = Number(searchParams.get('page') || 1);
   const pageLimit = Number(searchParams.get('limit') || 10);
-  const country = searchParams.get('search') || null;
-  const offset = (page - 1) * pageLimit;
   const { data, isLoading } = useGetAdvisorPaging();
   const users = data?.listObjects;
   const totalUsers = data?.total_users; //1000
