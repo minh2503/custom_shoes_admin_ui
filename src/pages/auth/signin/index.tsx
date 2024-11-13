@@ -57,7 +57,7 @@ export default function SignInPage() {
             <a className="underline underline-offset-4 hover:text-primary">
               chính sách bảo mật
             </a>{' '}
-            của Happy Kids .
+            của GLocal .
           </p>
         </div>
       </div>
