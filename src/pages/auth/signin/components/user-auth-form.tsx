@@ -14,6 +14,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import helper from '@/helpers/index';
+import { useToast } from '@/components/ui/use-toast';
 
 const formSchema = z.object({
   username: z.string().email({ message: 'Enter a valid email address' }),
@@ -26,6 +27,7 @@ type UserFormValue = z.infer<typeof formSchema>;
 
 export default function UserAuthForm() {
   const [loading] = useState(false);
+  const { toast } = useToast();
   const { mutateAsync: login } = useLogin();
   const defaultValues = {
     username: '',
@@ -41,6 +43,14 @@ export default function UserAuthForm() {
     if (res) {
       helper.cookie_set('AT', res.accessToken);
       window.location.href = '/';
+    } else {
+      alert('Sai tên đăng nhập hoặc mật khẩu');
+      toast({
+        title: 'Đăng nhập thất bại',
+        description: 'Sai tên đăng nhập hoặc mật khẩu',
+        duration: 5000,
+        variant: 'warning'
+      });
     }
   };
 
