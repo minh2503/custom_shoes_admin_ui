@@ -3,7 +3,7 @@ import helpers from '../helpers';
 
 const baseURL =
   process.env.NODE_ENV === 'production'
-    ? 'https://shoesapiz.azurewebsites.net/swagger/index.html'
+    ? 'https://shoesapiz.azurewebsites.net/'
     : 'https://localhost:7093/';
 
 const onRequestSuccess = (config: any) => {
