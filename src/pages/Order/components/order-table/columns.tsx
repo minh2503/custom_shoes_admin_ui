@@ -47,7 +47,7 @@ export const columns: ColumnDef<Order>[] = [
     header: 'Địa chỉ giao hàng'
   },
   {
-    accessorKey: 'phone',
+    accessorKey: 'note',
     header: 'Số điện thoại'
   },
   {
@@ -59,7 +59,7 @@ export const columns: ColumnDef<Order>[] = [
     }
   },
   {
-    accessorKey: 'shippedDate',
+    accessorKey: 'shipedDate',
     header: 'Ngày giao hàng'
   },
   {
